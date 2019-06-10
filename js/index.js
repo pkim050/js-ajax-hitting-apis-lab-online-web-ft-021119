@@ -2,7 +2,7 @@
 function displayCommits() {
   var commits = JSON.parse(this.responseText);
   const commList = `<ul>${commits.map(r =>
-    `<li>${r.html_url}</li>`).join('')}</ul>`;
+    `<li>${r.commit.author} ${r.commit.message}</li>`).join('')}</ul>`;
   console.log(commits);
   document.getElementById('details').innerHTML = commList;
 }
@@ -14,7 +14,7 @@ function displayBranches() {
 function displayRepositories() {
   var repos = JSON.parse(this.responseText);
   const repoList = `<ul>${repos.map(r =>
-    `<li>${r.commit.author} ${r.commit.message}/${name}</li>`).join('')}</ul>`;
+    `<li>${r.html_url}/${name}</li>`).join('')}</ul>`;
   document.getElementById('repositories').innerHTML = repoList;
 }
 
