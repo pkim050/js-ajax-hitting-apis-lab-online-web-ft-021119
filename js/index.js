@@ -2,8 +2,9 @@
 function displayCommits() {
   var commits = JSON.parse(this.responseText);
   const commList = `<ul>${commits.map(r =>
-  `<li>${r.html_url}</li>`).join('')}</ul>`;
-
+    `<li>${r.html_url}</li>`).join('')}</ul>`;
+  console.log(commList);
+  document.getElementById('details').innerHTML = commList;
 }
 
 function displayBranches() {
