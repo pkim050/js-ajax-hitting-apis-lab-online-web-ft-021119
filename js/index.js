@@ -1,6 +1,9 @@
 // your code here
 function displayCommits() {
-
+  var commits = JSON.parse(this.responseText);
+  const commList = `<ul>${commits.map(r =>
+  `<li>${r.html_url}</li>`).join('')}</ul>`;
+  
 }
 
 function displayBranches() {
@@ -11,7 +14,7 @@ function displayRepositories() {
   var repos = JSON.parse(this.responseText);
   const repoList = `<ul>${repos.map(r =>
     `<li>${r.html_url}/${name}</li>`).join('')}</ul>`;
-    document.getElementById('repositories').innerHTML = repoList;
+  document.getElementById('repositories').innerHTML = repoList;
 }
 
 function getRepositories() {
