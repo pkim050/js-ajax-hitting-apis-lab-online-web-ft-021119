@@ -7,7 +7,11 @@ function displayCommits() {
 }
 
 function displayBranches() {
-
+  var branches = JSON.parse(this.responseText);
+  const branchList = `<ul>${branches.map(r =>
+    `<li></li>`).join('')}</ul>`;
+  console.log(branches);
+  document.getElementById('details').innerHTML = branchList;
 }
 
 function displayRepositories() {
