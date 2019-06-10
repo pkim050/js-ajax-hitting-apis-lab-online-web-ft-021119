@@ -21,8 +21,13 @@ function getRepositories() {
   req.send();
 }
 
-function getCommits() {
-
+function getCommits(el) {
+  const username = el.dataset.username;
+  const repos = el.dataset.repository;
+  const req = new XMLHttpRequest();
+  req.addEventListener('load', displayCommits);
+  req.open('GET', `https://api.github.com/repos/${username}/${repos}/commits`);
+  req.send();
 }
 
 function getBranches() {
