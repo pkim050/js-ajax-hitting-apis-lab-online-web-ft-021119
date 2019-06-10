@@ -9,9 +9,9 @@ function displayBranches() {
 
 function displayRepositories() {
   var repos = JSON.parse(this.responseText);
-  const repoList = `${repos.map(r =>
-    '<li></li>').join(' ')}`
-    console.log(repos);
+  const repoList = `<ul>${repos.map(r =>
+    `<li>${r.html_url}/${name}</li>`).join('')}</ul>`;
+    document.getElementById('repositories').innerHTML = repoList;
 }
 
 function getRepositories() {
